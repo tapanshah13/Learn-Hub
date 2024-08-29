@@ -1,4 +1,4 @@
 # Learn Hub
 
 
-![App Screenshot](https://raw.githubusercontent.com/tapanshah13/src/assets/Screenshot2.png)
+![Screenshot](https://raw.githubusercontent.com/tapanshah13/Learn-Hub/main/src/assets/Screenshot2.png)
