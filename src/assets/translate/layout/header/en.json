@@ -1,0 +1,14 @@
+{
+    "header": {
+        "menu": {
+            "item1": "Dashboard",
+            "item2": "Manage Admin",
+            "item3": "Manage Chapter",
+            "item4": "Manage Module",
+            "item5": "Manage Course",
+            "item6": "Manage User",
+            "item7": "Manage Contact"
+
+        }
+    }
+}

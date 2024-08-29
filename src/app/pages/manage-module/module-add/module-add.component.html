@@ -1,0 +1,34 @@
+<!-- Add -->
+
+<h2 class="mt-4 ml-4">
+    <mat-icon>perm_media</mat-icon> | {{ModuleTitle}}</h2>
+<div style="background-color: white;" class="mt-4 ml-4">
+    <mat-tab-group mat-align-tabs="start" [(selectedIndex)]='gotIndex' *ngIf="header !== 'edit'" animationDuration='1000ms'>
+
+        <mat-tab label="Create module">
+            <app-module-create *ngIf="[0,1,2,3].includes(gotIndex)"></app-module-create>
+        </mat-tab>
+        <!-- create chapter section -->
+        <mat-tab label="Create chapter" disabled="{{enableChapter}}">
+            <app-create-chapter *ngIf="[1,2,3].includes(gotIndex)"></app-create-chapter>
+        </mat-tab>
+        <mat-tab label="Create exam" disabled="{{enableExam}}">
+            <app-create-exam *ngIf="[2,3].includes(gotIndex)"></app-create-exam>
+        </mat-tab>
+
+    </mat-tab-group>
+    <mat-tab-group mat-align-tabs="start" [(selectedIndex)]='gotIndex' *ngIf="header === 'edit'" animationDuration='1000ms'>
+
+        <mat-tab label="Update module">
+            <app-module-create *ngIf="[0,1,2,3].includes(gotIndex)"></app-module-create>
+        </mat-tab>
+        <!-- create chapter section -->
+        <mat-tab label="Upadate Module chapter">
+            <app-create-chapter *ngIf="[1,2,3].includes(gotIndex)"></app-create-chapter>
+        </mat-tab>
+        <mat-tab label="Update Module exam">
+            <app-create-exam *ngIf="[2,3].includes(gotIndex)"></app-create-exam>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

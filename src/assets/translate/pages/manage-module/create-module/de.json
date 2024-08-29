@@ -1,0 +1,10 @@
+{
+    "create-module": {
+    "text": {
+        "moduleName" : "Nom du module",
+        "moduleDescription" : "Descriptif des modules",
+        "save" : "Sauvegarder",
+        "cancel" : "Annuler"
+        }
+    }
+}

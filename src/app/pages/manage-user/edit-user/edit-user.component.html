@@ -1,0 +1,42 @@
+<h2 class="ml-4 mt-4">
+    <mat-icon>perm_media</mat-icon> | Edit User</h2>
+<div class="progress-spinner" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div class="user-detail">
+    <form [formGroup]='userForm' (ngSubmit)='onSave()'>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>First Name</label>
+                    <input matInput type="text" placeholder="First Name" formControlName='firstName' class="pl-3 py-2 text-field">
+                    <span *ngIf="!userForm.get('firstName')?.valid && userForm.get('firstName')?.touched" class="alert-message">Please enter First Name</span>
+                </div>
+                <div class="col-md-6">
+                    <label>Last Name</label>
+                    <input matInput type="text" placeholder="Last Name" formControlName='lastName' class="pl-3 py-2 text-field">
+                    <span *ngIf="!userForm.get('lastName')?.valid && userForm.get('lastName')?.touched" class="alert-message">Please enter Last Name</span>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Email</label>
+                    <input matInput type="text" placeholder="Email" formControlName='email' class="pl-3 py-2 text-field" readonly>
+                    <span *ngIf="!userForm.get('email')?.valid && userForm.get('email')?.touched" class="alert-message">Please enter Email</span>
+                </div>
+                <div class="col-md-6">
+                    <label class="mb-3">Status</label><br>
+                    <mat-radio-group aria-label="Select an option" formControlName='isActive'>
+                        <mat-radio-button value="1" color='primary'>Active</mat-radio-button>
+                        <mat-radio-button value="0" color='primary'>InActive</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <br>
+            <button mat-raised-button type="submit" color="primary" [disabled]='!userForm.valid' class="mr-3">Save</button>
+            <button mat-raised-button type="reset" color="warn" (click)='onCancel()'>Cancel</button>
+        </div>
+        <br><br>
+    </form>
+</div>

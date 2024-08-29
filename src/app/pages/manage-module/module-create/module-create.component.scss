@@ -1,0 +1,26 @@
+.error {
+    color: red;
+}
+
+// input.ng-dirty.ng-invalid {
+//     color: red
+// }
+.module-detail {
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.text-field {
+    border: 1px solid lightgrey;
+    width: 50%;
+}
+
+.btnspace {
+    margin-left: 20px;
+}
+
+.input {
+    mat-form-field {
+        width: 100%;
+    }
+}

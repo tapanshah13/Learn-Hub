@@ -1,0 +1,24 @@
+{
+    "add_chapter": {
+        "text": {
+            "title": "Ajouter un chapitre",
+            "chName": "Nom du chapitre",
+            "tduration": "Durée totale (en minutes)",
+            "sdescription": "Description courte du chapitre",
+            "image": "Image",
+            "pdf": "pdf",
+            "videowithurl": "Vidéo avec URL",
+            "audio": "Audio",
+            "video": "vidéo",
+            "text": "SMS",
+            "view": "Vue",
+            "inactive": "En activité",
+            "active": "actif",
+            "save": "sauvegarder",
+            "cancel": "Annuler",
+            "nameValid": "Le nom ne peut pas être vide",
+            "durationvalid": "La durée ne peut pas être vide",
+            "sdescpvalid": "description ne peut pas être vide"
+        }
+    }
+}

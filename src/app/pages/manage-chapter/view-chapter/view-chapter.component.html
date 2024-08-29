@@ -1,0 +1,104 @@
+<div class="card-box mt-3">
+    <h2 class="mt-4">{{'view-chapter.text.title' | translate}}</h2>
+    <div class="mat-card">
+        <table class="w-100" *ngIf="this.params !== chapterId">
+            <tr>
+                <td><b>{{'view-chapter.text.name' | translate}}:</b></td>
+                <td>{{chapterName}}</td>
+            </tr>
+            <tr>
+                <td><b>{{'view-chapter.text.chDuration' | translate}}:</b></td>
+                <td>{{chapterDuration}}</td>
+            </tr>
+            <tr>
+                <td><b>{{'view-chapter.text.shortDesc' | translate}}:</b></td>
+                <td><span>{{chapterDescription}}</span></td>
+            </tr>
+        </table>
+        <table class="w-100" *ngIf="this.params == chapterId ">
+            <tr>
+                <td>
+                    <b>{{'view-chapter.text.name' | translate}}:</b></td>
+                <td>{{chapterDetail.name}}</td>
+            </tr>
+            <tr>
+                <td><b>{{'view-chapter.text.chDuration' | translate}}:</b></td>
+                <td>{{chapterDetail.duration}}</td>
+            </tr>
+            <tr>
+                <td><b>{{'view-chapter.text.shortDesc' | translate}}:</b></td>
+                <td><span>{{chapterDetail.shortDescription}}</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12">
+
+        <img [src]="GenUrl" alt="" *ngIf="imgVisible" width="100%" height="315">
+        <iframe width="100%" height="315" [src]="GenUrl" frameborder="0" allowfullscreen class="mt-3" *ngIf='vidioWithUrl'></iframe>
+        <audio controls *ngIf="audioVisible">
+            <source [src]="audioUrl" type="audio/mpeg">
+        </audio>
+        <video width="320" height="240" controls *ngIf="videoVisible">
+            <source [src]="videoUrl" type="video/mp4">
+          </video>
+        <pdf-viewer [src]="pdfUrl" [render-text]="true" style="display: block; width: 500px; height: 200px;" *ngIf="pdfVisible">
+        </pdf-viewer>
+        <iframe [src]="TextUrl" title="W3Schools Free Online Web Tutorials" *ngIf="textVisible">
+        </iframe>
+    </div>
+    <form #question="ngForm">
+        <h1 class="my-4 border-bottom pb-2 questionhead">{{'view-chapter.text.question' | translate}}</h1>
+        <div *ngIf="singleanswerdiv">
+            <div *ngFor="let singledata of singleanswer; let i = index">
+                <p> &nbsp;&nbsp;<strong>{{i+1}}.</strong> {{singledata.question}}</p>
+                <mat-radio-group disabled>
+                    <mat-radio-button value="{{singleoption.questionOption}}" [checked]="singleoption.status == '1'" name="singleanswer{{i}}" *ngFor="let singleoption of singledata.option; let i = index">{{singleoption.questionOption}}&nbsp;
+                    </mat-radio-button>
+                    &nbsp;
+                </mat-radio-group>
+            </div>
+        </div>
+        <!-- <h1>Multi Answer</h1> -->
+        <div *ngIf="multianswerdiv">
+            <div *ngFor="let multidata of multianswer; let i = index">
+                <p>&nbsp;&nbsp;<strong>{{i+1}}.</strong> {{multidata.question}}</p>
+                <mat-checkbox *ngFor="let multioption of multidata.option; let i = index" [checked]="multioption.status == '1'" value="{{multioption.questionOption}}" name="multianswer{{i}}" disabled>{{multioption.questionOption}}</mat-checkbox>
+            </div>
+        </div>
+        <!-- <h1>True/False Answer</h1> -->
+        <div *ngIf="truefalseanswerdiv">
+            <div *ngFor="let truefalsedata of truefalseanswer let i = index">
+                <p>&nbsp;&nbsp;<strong>{{i+1}}.</strong> {{truefalsedata.question}}</p>
+                <mat-radio-group color="primary" disabled>
+                    <mat-radio-button value="{{truefalseoption.questionOption}}" class="truefalsebtn" [checked]="truefalseoption.status == '1'" *ngFor="let truefalseoption of truefalsedata.option"><a mat-raised-button color="primary" class="truefalsebtn" disabled>{{truefalseoption.questionOption}}</a>
+                    </mat-radio-button>
+
+                </mat-radio-group>
+            </div>
+        </div>
+        <!-- <h1>Drag & Drop Answer</h1> -->
+        <div *ngIf="dragdropanswerdiv">
+            <div *ngFor="let dragdropdata of dragdropanswer let i = index">
+                <p>&nbsp;&nbsp;<strong>{{i+1}}.</strong> {{dragdropdata.question}}</p>
+                <mat-label></mat-label>
+                <div style="border: 1px solid black; padding: 10px;">
+                    <mat-form-field appearance="outline" class="input" *ngFor="let dragdropoption of dragdropdata.option">
+                        <input matInput [(ngModel)]="dragdropoption.options" placeholder="{{dragdropoption.questionOption}}" [ngModelOptions]="{standalone: true}" disabled>
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </div>
+        <!-- <h1>Fill in The Blank Answer</h1> -->
+        <div *ngIf="fillintheblankanswerdiv">
+            <div *ngFor="let fillintheblankdata of fillintheblankanswer; let i = index">
+                <p> &nbsp;&nbsp;<strong>{{i+1}}.</strong> {{fillintheblankdata.question}}</p>
+                <mat-radio-group disabled>
+                    <mat-radio-button value="{{fillintheblankoption.questionOption}}" name="fillintheblankanswer{{i}}" [checked]="fillintheblankoption.status == '1'" *ngFor="let fillintheblankoption of fillintheblankdata.option; let i = index">{{fillintheblankoption.questionOption}}&nbsp;
+                    </mat-radio-button>
+                    &nbsp;
+                </mat-radio-group>
+            </div>
+        </div>
+    </form>
+</div>

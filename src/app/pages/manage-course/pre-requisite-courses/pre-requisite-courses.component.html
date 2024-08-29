@@ -1,0 +1,17 @@
+<mat-form-field class="chip-list" appearance="outline">
+    <mat-chip-list #chipList aria-label="Course selection">
+        <mat-chip *ngFor="let course of selectedCourses" [selectable]="selectable" [removable]="removable" (removed)="remove(course)">
+            {{course}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="{{'preRequisite.text.selectCourse' | translate}}" #courseInput [formControl]="courseCtrl" [matAutocomplete]="auto" [matChipInputFor]="chipList">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let course of filteredCourses | async" [value]="course">
+            {{course}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+<button mat-flat-button class="saveButton" (click)="saveCourse()" [routerLink]="'/manage-course'">{{'preRequisite.text.Save' | translate}}</button>
+<button mat-flat-button color="warn" [routerLink]="'/manage-course'">{{'preRequisite.text.Cancel' | translate}}</button>
+<router-outlet></router-outlet>

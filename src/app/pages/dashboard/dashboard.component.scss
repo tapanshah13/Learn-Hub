@@ -1,0 +1,63 @@
+.mat-card {
+    color: white;
+    width: 100%;
+}
+
+// .flex-box {
+//     display: flex;
+//     flex-direction: row;
+// }
+// .box-divison {
+//     width: 100%;
+// }
+// .icon-class {
+//   display: flex;
+//   flex-direction: column;
+// }
+.big-font {
+    padding-left: 25px;
+}
+
+.custom:hover {
+    border: 1px solid black;
+}
+
+// .row {
+//     // display: grid;
+//     // grid-gap: 10px;
+//     justify-content: space-between;
+//     // grid-auto-flow: column;
+//     width: 100%;
+// }
+.mat-card.box1 {
+    background: linear-gradient(60deg, #ffa726, #fb8c00);
+    // grid-column: 1/ 2;
+    cursor: pointer;
+    width: 100%;
+    // grid-row: 1/2;
+    // display: flex;
+}
+
+.mat-card.box2 {
+    background: linear-gradient(60deg, #66bb6a, #43a047);
+    // grid-column: 2/ 3;
+    cursor: pointer;
+    width: 100%;
+    // grid-row: 1/2;
+}
+
+.mat-card.box3 {
+    background: linear-gradient(60deg, #26c6da, #00acc1);
+    // grid-column: 3/ 4;
+    cursor: pointer;
+    width: 100%;
+    // grid-row: 1/2;
+}
+
+.mat-card.box4 {
+    background: linear-gradient(60deg, #ec407a, #d81b60);
+    // grid-column: 4/ 5;
+    cursor: pointer;
+    width: 100%;
+    // grid-row: 1/2;
+}

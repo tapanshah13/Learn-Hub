@@ -1,0 +1,24 @@
+{
+    "add_chapter": {
+        "text": {
+            "title": "Add Chapter",
+            "chName": "Chapter Name",
+            "tduration": "Total Duration (In Minutes)",
+            "sdescription": "Chapter Short Description",
+            "image": "Image",
+            "pdf": "pdf",
+            "videowithurl": "Video With Url",
+            "audio": "Audio",
+            "video": "Video",
+            "text": "Text",
+            "view": "View",
+            "inactive": "In-Active",
+            "active": "Active",
+            "save": "Save",
+            "cancel": "Cancel",
+            "nameValid": "Name  can't be Empty",
+            "durationvalid": "Duration  can't be Empty",
+            "sdescpvalid": "description can't be Empty"
+        }
+    }
+}

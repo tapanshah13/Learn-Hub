@@ -1,0 +1,46 @@
+<h2 class="ml-4 mt-4">
+    <mat-icon>perm_media</mat-icon> | User List</h2>
+<div class="progress-spinner" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div style="background-color: white;" class="ml-4 mt-4">
+    <div>
+        <input type="search" placeholder="Search" (keyup)="search($event)" class="m-3 p-2 pl-3 search-field">
+
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <ng-container matColumnDef="srNo">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Sr.No. </th>
+            <td mat-cell *matCellDef="let element; index as i"> {{i + 1 + (paginator.pageIndex * paginator.pageSize)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> First Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.isActive == 1?'Active':'InActive'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="table-heading"> Actions </th>
+
+            <td mat-cell *matCellDef="let element; index as i">
+                <mat-icon class="mr-1 action-icon" matTooltip="Edit" matTooltipPosition="above" matTooltipClass="custom-tooltip" title="Edit" [routerLink]="['edit', element._id]" routerLinkActive="router-link-active">edit</mat-icon>
+                <mat-icon class="action-icon" matTooltip="Delete" matTooltipPosition="above" matTooltipClass="custom-tooltip" (click)="deleteUser(element._id)">delete_outline</mat-icon>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [length]='length' [pageSizeOptions]="[5,10, 20]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,72 @@
+<h2>
+    <mat-icon>perm_media</mat-icon> | Module List</h2>
+<div style="background-color: white;">
+    <div>
+
+        <input type="search" placeholder="Search" (keyup)="search($event)" class="m-3 p-2 pl-3">
+        <button class="btn btn-primary my-3 mr-3" style="float: right;"><mat-icon>add</mat-icon>Add Module</button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <ng-container matColumnDef="srNo">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Sr.No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.srNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="moduleName">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>Module Namesssss </th>
+            <td mat-cell *matCellDef="let element"> {{element.moduleName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="addedBy">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Added By </th>
+            <td mat-cell *matCellDef="let element"> {{element.addedBy}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Total Time Taken </th>
+            <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="timePeriod">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Time Period(In days) </th>
+            <td mat-cell *matCellDef="let element"> {{element.timePeriod}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalAttempt">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Time Period(In days) </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalAttempt}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdDate">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Created Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="updatedDate">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Updated Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.updatedDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="table-heading"> Actions </th>
+
+            <td mat-cell *matCellDef="let element">
+                <mat-icon class="mr-1 action-icon" title="View">visibility</mat-icon>
+                <mat-icon class="mr-1 action-icon" title="Clone">flip_to_back</mat-icon>
+                <mat-icon class="mr-1 action-icon" title="Edit">edit</mat-icon>
+                <mat-icon title="Delete" class="action-icon" (click)="deleteRecord(element.srNo)">delete</mat-icon>
+
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

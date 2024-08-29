@@ -1,0 +1,40 @@
+table {
+    width: 100%;
+}
+
+th {
+    font-size: 14px;
+    color: black;
+}
+
+// td,
+// th {
+//     width: 100%;
+// }
+.card-box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.04), 0 32px 64px rgba(0, 0, 0, 0.04);
+    ;
+}
+
+.example-tooltip-red {
+    background: #3f51b5;
+}
+
+.action-link {
+    cursor: pointer;
+}
+
+.progress-spinner {
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}

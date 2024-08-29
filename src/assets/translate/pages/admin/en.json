@@ -1,0 +1,16 @@
+{
+    "admin": {
+        "text": {
+            "title": "Admin List",
+            "srno": "Sr.No.",
+            "fname": "First Name",
+            "lname": "Last Name",
+            "email": "Email",
+            "admin_type": "Admin Type",
+            "status": "Status",
+            "action": "Actions",
+            "search": "Search",
+            "abtn": "Add Admin"
+        }
+    }
+}

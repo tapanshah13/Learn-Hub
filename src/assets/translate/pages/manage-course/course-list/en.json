@@ -1,0 +1,89 @@
+{
+    "course-list": {
+        "text": {
+            "title": "main course module",
+            "search": "Search",
+            "add-course": "Create Course",
+            "srno": "Sr.No.",
+            "chName": "Course Name",
+            "addedBy": "Added By",
+            "estimatedTime": "Estimated Time",
+            "createdat": "Created At",
+            "updateat": "Updated At",
+            "status": "Status",
+            "action": "Action"
+        }
+    },
+    "add-course": {
+        "text": {
+            "courseDetail": "Course Detail",
+            "selectModule": "Select Module",
+            "courseExam": "Course Exam",
+            "preRequisite": "Pre Requisite Courses",
+            "ucourseDetail": "Update Course Detail",
+            "uselectModule": "Update Course Module",
+            "ucourseExam": "Update Course Exam",
+            "uprequisite": "Pre Requisite Courses"
+        }
+    },
+    "corse-detail": {
+        "text": {
+            "Course": "Course",
+            "courseValid": "Please enter Course Name",
+            "Image": "Image",
+            "imagevalid": "* Upload Image with minimum Width - 260px and Height - 210px.",
+            "chooseFile": "Choose file",
+            "View": "View",
+            "imagevalid1": "Please enter thumbnail image",
+            "popularCourse": "Popular Course",
+            "isFeatured": "Is Featured",
+            "enrollCourseDesc": "Enroll Course Description*",
+            "enrollCourseDescvalid": "Please enter Course Description",
+            "shortDes": "Short Description*",
+            "shortDesValid": "Please enter Course Short Description",
+            "detailDesc": "Detail Description*",
+            "detailDescValid": "Please enter Course Detail Description",
+            "Save": "Save",
+            "Cancel": "Cancel"
+
+        }
+    },
+    "course-module": {
+        "text": {
+            "Course": "Course",
+            "search": "Search and Select Module",
+            "estimatedTime": "Total Estimated Time",
+            "min": "min",
+            "Save": "Save",
+            "Cancel": "Cancel"
+        }
+    },
+    "course-Exam": {
+        "text": {
+            "Attempt": "Attempt",
+            "attemptValid": "Attempt is Required",
+            "timePeriods": "Time Period (In days)",
+            "timePeriodsValid": "Time Period is Required",
+            "examTime": "Exam Time (In Minutes)",
+            "examTimeValid": "Exam Time is Required",
+            "passingPercentage": "Passing Percentage",
+            "passingpercentageValid": "Passing Percentage is Required",
+            "moduleName": "Module Name",
+            "moduleQuestion": "Total Module Question",
+            "examQuestion": "Select Exam Question",
+            "selectQuestion": "Select Questions",
+            "totalExamQues": "Total Exam Questions",
+            "giveReview": "Do you want user to review exam?",
+            "reviewExam": "Review Exam",
+            "Save": "Save",
+            "Cancel": "Cancel"
+        }
+    },
+    "preRequisite": {
+        "text": {
+            "selectCourse": "Select A Course",
+            "Save": "Save",
+            "Cancel": "Cancel"
+        }
+    }
+}

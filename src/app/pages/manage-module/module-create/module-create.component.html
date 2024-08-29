@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <form [formGroup]="moduleAdd">
+            <!-- <div class="row"> -->
+            <div class="col-md-6 input mt-4">
+                <mat-label>{{'create-module.text.moduleName' | translate}}</mat-label><br>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Module name*" formControlName="ModuleName">
+                </mat-form-field>
+                <mat-error *ngIf="!moduleAdd.get('ModuleName')?.valid && moduleAdd.get('ModuleName')?.touched">
+                    Module name is Required
+                </mat-error>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="row"> -->
+            <div class="col-md-12">
+                <mat-label>{{'create-module.text.moduleDescription' | translate}}</mat-label><br><br>
+                <ckeditor placeholder="Add module description" formControlName="ModuleDescription">
+                </ckeditor>
+                <mat-error *ngIf="!moduleAdd.get('ModuleDescription')?.valid && moduleAdd.get('ModuleDescription')?.touched">
+                    Module name is Required
+                </mat-error>
+            </div>
+            <!-- </div> -->
+            <br><br>
+            <button [disabled]=!moduleAdd.valid mat-raised-button color="primary" class='mx-4' (click)="enableNextTab()">{{'create-module.text.save' | translate}}</button>
+            <button mat-raised-button color="warn" (click)="redirectToModule()">{{'create-module.text.cancel' | translate}}</button>
+        </form>
+        <router-outlet></router-outlet>
+    </div>
+</div>

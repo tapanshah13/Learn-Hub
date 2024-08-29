@@ -1,0 +1,49 @@
+::placeholder {
+    color: grey;
+}
+
+.text-field {
+    border: 1px solid lightgrey;
+    width: 50%;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
+    -o-border-radius: 5%;
+}
+
+.progress-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.custom-tooltip {
+    background-color: rgb(243, 12, 12);
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    width: 50px;
+}
+
+.remove-icon {
+    float: right;
+    color: red;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+label {
+    float: right;
+    font-weight: 300;
+    font-size: 16px;
+    color: grey;
+    margin-right: 35px;
+}

@@ -1,0 +1,11 @@
+{
+    "view-chapter": {
+        "text": {
+            "title": "Détails du chapitre",
+            "name": "nom",
+            "chDuration": "Durée du chapitre",
+            "shortDesc": "Brève description",
+            "question": "Questionne"
+        }
+    }
+}

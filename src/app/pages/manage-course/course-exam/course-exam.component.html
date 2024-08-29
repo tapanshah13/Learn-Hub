@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="main-class">
+        <form [formGroup]="courseExam" (ngSubmit)="onSave()">
+            <div class="row ">
+                <div class="col-md-6">
+                    <mat-label>{{'course-Exam.text.Attempt' | translate}}</mat-label><br>
+                    <mat-form-field appearance="outline">
+                        <input type="number" step="1" min="1" matInput placeholder="{{'course-Exam.text.Attempt' | translate}}*" formControlName="attempt">
+                    </mat-form-field>
+                    <mat-error *ngIf="!courseExam.get('attempt')?.valid && courseExam.get('attempt')?.touched">
+                        {{'course-Exam.text.attemptValid' | translate}}
+                    </mat-error>
+                </div>
+                <div class="col-md-6">
+                    <mat-label>{{'course-Exam.text.timePeriods' | translate}}</mat-label><br>
+                    <mat-form-field appearance="outline">
+                        <input type="number" step="1" min="1" matInput placeholder="{{'course-Exam.text.timePeriods' | translate}}*" formControlName="examTimePeriod">
+                    </mat-form-field>
+                    <mat-error *ngIf="!courseExam.get('examTimePeriod')?.valid && courseExam.get('examTimePeriod')?.touched">
+                        {{'course-Exam.text.timePeriodsValid' | translate}}
+                    </mat-error>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-label>{{'course-Exam.text.examTime' | translate}}</mat-label><br>
+                    <mat-form-field appearance="outline">
+                        <input type="number" step="1" min="1" matInput placeholder="{{'course-Exam.text.examTime' | translate}}*" formControlName="examDuration">
+                    </mat-form-field>
+                    <mat-error *ngIf="!courseExam.get('examDuration')?.valid && courseExam.get('examDuration')?.touched">
+                        {{'course-Exam.text.examTimeValid' | translate}}
+                    </mat-error>
+                </div>
+                <div class="col-md-6">
+                    <mat-label>{{'course-Exam.text.passingPercentage' | translate}}</mat-label><br>
+                    <mat-form-field appearance="outline">
+                        <input type="number" step="1" min="1" matInput placeholder="{{'course-Exam.text.passingPercentage' | translate}}*" formControlName="passingPercentage">
+                    </mat-form-field>
+                    <mat-error *ngIf="!courseExam.get('passingPercentage')?.valid && courseExam.get('passingPercentage')?.touched">
+                        {{'course-Exam.text.passingpercentageValid' | translate}}
+                    </mat-error>
+                </div>
+            </div>
+
+            <!-- table  -->
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+                <!-- moduleName Column -->
+                <ng-container matColumnDef="moduleName">
+                    <th mat-header-cell *matHeaderCellDef> {{'course-Exam.text.moduleName' | translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element._id.name}} </td>
+                </ng-container>
+
+                <!-- moduleQuestions Column -->
+                <ng-container matColumnDef="moduleQuestions">
+                    <th mat-header-cell *matHeaderCellDef> {{'course-Exam.text.moduleQuestion' | translate}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.totalExamQuestion}} </td>
+                </ng-container>
+
+                <!-- selectQuestions Column -->
+                <ng-container matColumnDef="selectQuestions">
+                    <th mat-header-cell *matHeaderCellDef> {{'course-Exam.text.examQuestion' | translate}} </th>
+                    <td mat-cell *matCellDef="let element;let i = index;">
+                        <mat-form-field appearance="fill">
+                            <mat-label>{{'course-Exam.text.selectQuestion' | translate}}</mat-label>
+                            <mat-select (selectionChange)="changeOption($event.value)" [(ngModel)]="numberOfQuestions[i]" [ngModelOptions]="{standalone: true}">
+                                <mat-option>{{'course-Exam.text.selectQuestion' | translate}}</mat-option>
+                                <mat-option *ngFor="let num of (element.totalExamQuestion+1) | arrayFromNumber; trackBy:trackByIndex;" [value]="num"> {{num}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <div class="totalQuestion">
+                <span>{{'course-Exam.text.totalExamQues' | translate}}: {{totalQuestion}}</span>
+            </div>
+            <div class="totalQuestions">
+                <span>{{'course-Exam.text.giveReview' | translate}}</span>
+                <mat-checkbox color="primary" (change)="getCheckboxes($event)" class="review" formControlName="reviewExam">
+                    {{'course-Exam.text.reviewExam' | translate}}
+                </mat-checkbox>
+            </div>
+            <div>
+                <button mat-flat-button class="saveButton" type="submit">{{'course-Exam.text.Save' | translate}}</button>
+                <button mat-flat-button color="warn" [routerLink]="'/manage-course'">{{'course-Exam.text.Cancel' | translate}}</button>
+            </div>
+            <!-- <router-outlet></router-outlet> -->
+        </form>
+    </div>
+</div>

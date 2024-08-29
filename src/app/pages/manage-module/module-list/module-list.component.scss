@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+}
+
+.action-icon {
+    cursor: pointer;
+    color: grey;
+}
+
+.table-heading {
+    color: grey;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+::placeholder {
+    color: lightgrey;
+    font-weight: 500;
+}
+
+input {
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    width: 15%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}

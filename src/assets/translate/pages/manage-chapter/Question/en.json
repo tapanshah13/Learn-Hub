@@ -1,0 +1,16 @@
+{
+    "question": {
+        "text": {
+            "title": "Chapter Details",
+            "name": "Name",
+            "chDuration": "Chapter Duration",
+            "shortDesc": "Short Description",
+            "addQues": "Add Questions",
+            "srno": "Sr.No.",
+            "question": "Questions",
+            "quesType": "Question Type",
+            "createdAt": "Created At",
+            "action": "Action"
+        }
+    }
+}

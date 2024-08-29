@@ -1,0 +1,40 @@
+<div *ngIf="sharedService.isLoading | async" class="loader-container">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<mat-toolbar class="header">
+    <mat-toolbar-row>
+        <div class="logoicon" *ngIf="header"><button mat-icon-button (click)="toggleSideBar()" class="menubtnicon">
+            <i class="material-icons">menu_open</i></button><img src="https://vidhya-backend.viitorcloud.in/assets/images/logo-new.svg"></div>
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu1">{{switchLang == 'en'? 'English' : 'French'}}</button>
+                    <mat-menu #menu1="matMenu">
+                        <button mat-menu-item [class.active]="switchLang == 'en'" (click)="selectedLanguage('en')">English</button>
+                        <button mat-menu-item [class.active]="switchLang == 'de'" (click)="selectedLanguage('de')">French</button>
+                    </mat-menu>
+                </li>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <mat-icon>person_outline</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+
+                        <button mat-menu-item [routerLink]="['/manage-admin/add-admin']"> 
+                            <mat-icon>settings</mat-icon>
+                            <span>Profile</span>
+                        </button>
+                        <button mat-menu-item [routerLink]= "['/manage-admin/profile/changepassword']"> 
+                            <mat-icon>passoword</mat-icon>
+                            <span>Change password</span>
+                        </button>
+                        <button mat-menu-item (click)="signOut()"> 
+                            <mat-icon>exit_to_app</mat-icon>
+                            <span>Sign out</span>
+                        </button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

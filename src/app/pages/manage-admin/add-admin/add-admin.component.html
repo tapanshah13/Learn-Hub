@@ -1,0 +1,75 @@
+<h2 class="ml-4 mt-4">
+    <mat-icon>perm_media</mat-icon> | {{headerName}}</h2>
+<div *ngIf='adminId'>
+    <div class="progress-spinner" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+</div>
+<div class="admin-detail">
+    <form [formGroup]='adminForm' (ngSubmit)='onSave()'>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>{{'admin.text.fname'| translate }}</label>
+                    <input matInput type="text" placeholder="First Name" formControlName='firstName' class="pl-3 py-2 text-field">
+                    <mat-error *ngIf="!adminForm.get('firstName')?.valid && adminForm.get('firstName')?.touched" class="alert-message">{{'a_admin.text.enter_fname'| translate }}</mat-error>
+                </div>
+                <div class="col-md-4">
+                    <label>{{'admin.text.lname'| translate }}</label>
+                    <input matInput type="text" placeholder="Last Name" formControlName='lastName' class="pl-3 py-2 text-field">
+                    <mat-error *ngIf="!adminForm.get('lastName')?.valid && adminForm.get('lastName')?.touched" class="alert-message">{{'a_admin.text.enter_lname'| translate }}</mat-error>
+                </div>
+                <div class="col-md-4">
+                    <label>{{'admin.text.email'| translate }}</label>
+                    <input matInput type="text" placeholder="Email" formControlName='email' class="pl-3 py-2 text-field" [readonly]='readonly'>
+                    <mat-error *ngIf="!adminForm.get('email')?.valid && adminForm.get('email')?.touched" class="alert-message">{{'a_admin.text.enter_email'| translate }}</mat-error>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Google</label>
+                    <input matInput type="url" placeholder="Google" formControlName='googleLink' class="pl-3 py-2 text-field">
+                    <mat-error *ngIf="adminForm.get('googleLink')?.value && adminForm.get('googleLink')?.invalid" class="alert-message">{{'a_admin.text.enter_url'| translate }}</mat-error>
+                </div>
+                <div class="col-md-4">
+                    <label>Twitter</label>
+                    <input matInput type="url" placeholder="Twitter" formControlName='twitterLink' class="pl-3 py-2 text-field">
+                    <mat-error *ngIf="adminForm.get('twitterLink')?.value && adminForm.get('twitterLink')?.invalid" class="alert-message">{{'a_admin.text.enter_url'| translate }}</mat-error>
+
+                </div>
+                <div class="col-md-4">
+                    <label>Facebook</label>
+                    <input matInput type="url" placeholder="Facebook" formControlName='faceBookLink' class="pl-3 py-2 text-field">
+                    <mat-error *ngIf="adminForm.get('faceBookLink')?.value && adminForm.get('faceBookLink')?.invalid" class="alert-message">{{'a_admin.text.enter_url'| translate }}</mat-error>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>{{'a_admin.text.about'| translate }}</label><br>
+                    <textarea rows="2" placeholder="About Me" formControlName='aboutMe' class="pl-3 py-2"></textarea>
+                    <mat-error *ngIf="!adminForm.get('aboutMe')?.valid && adminForm.get('aboutMe')?.touched" class="alert-message">{{'a_admin.text.enter_detal'| translate }}</mat-error>
+                </div>
+            </div>
+            <br>
+            <input type="file" accept="image/*" id='actual-btn' formControlName='imageUrl' (change)="onSelectImage($event)" hidden>
+            <label for="actual-btn" class="image-btn">{{'a_admin.text.choise_File'| translate }}</label>
+            <span id="file-chosen" class="mr-3">{{fileName}}</span>
+            <button mat-raised-button type="button" *ngIf="length" color="primary" (click)="viewImage()">{{'a_admin.text.view'| translate }}</button>
+            <mat-error *ngIf="!adminForm.get('imageUrl')?.valid && adminForm.get('imageUrl')?.touched" class="alert-message"> {{'a_admin.text.enter_image'| translate }}</mat-error>
+
+            <br><br>
+            <label>Status</label><br>
+            <mat-radio-group aria-label="Select an option" formControlName='isActive'>
+                <mat-radio-button value="1" color='primary'>{{'a_admin.text.active'| translate }}</mat-radio-button>
+                <mat-radio-button value="0" color='primary'>{{'a_admin.text.inActive'| translate }}</mat-radio-button>
+            </mat-radio-group>
+            <br><br>
+            <button mat-raised-button type="submit" color="primary" [disabled]='!adminForm.valid' class="mr-3">{{'a_admin.text.save'| translate }}</button>
+            <button mat-raised-button type="reset" color="warn" (click)='onCancel()'>{{'a_admin.text.cancel'| translate }}</button>
+
+        </div>
+    </form>
+    <br><br>
+</div>

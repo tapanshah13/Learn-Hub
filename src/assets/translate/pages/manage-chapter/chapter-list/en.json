@@ -1,0 +1,17 @@
+{
+    "chapter_list": {
+        "text": {
+            "title": "Chapter List",
+            "search": "Search",
+            "add-chapter": "Add Chapter",
+            "srno": "Sr.No.",
+            "chName": "Chapter Name",
+            "addedBy": "Added By",
+            "tduration": "Total Duration (In Minutes)",
+            "createdat": "Created At",
+            "updateat": "Updated At",
+            "status": "Status",
+            "action": "Action"
+        }
+    }
+}

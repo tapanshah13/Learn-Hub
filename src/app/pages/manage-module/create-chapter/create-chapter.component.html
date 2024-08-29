@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <div class="row">
+
+        <div class="col-md-6">
+            <!-- drag and drop -->
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of modulearr; index as indexID;" [cdkDragData]="item" cdkDrag>
+                    {{item.chName}}
+                    <mat-icon class="dltCh ml-auto" title="remove" (click)='onDeleteofModule(indexID)'>delete_outline</mat-icon>
+                </div>
+            </div>
+        </div>
+        <!-- choose chapter dropdown -->
+        <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+                <!-- <mat-label>Number</mat-label> -->
+                <input type="text" class="chapterNames" placeholder="Choose chapters" name="chName" [(ngModel)]="chName" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let data of filteredOptions | async" [value]="data.name" (click)="getName(chName)">
+                        {{data.name}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6 mt-4">
+            <label>{{'create-chapter.text.timeTaken' | translate}}: {{totnum}} min</label><br>
+            <button mat-raised-button color="primary" (click)='enableNextTab()'>{{'create-chapter.text.save' | translate}}</button>
+            <button class="btnspace" mat-raised-button color="warn">{{'create-chapter.text.cancel' | translate}}</button>
+        </div>
+    </div>
+</div>

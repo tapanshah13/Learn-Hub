@@ -1,0 +1,33 @@
+.rdo {
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+}
+
+::ng-deep .mat-select-trigger {
+    min-width: 80px;
+}
+
+.card-box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.04), 0 32px 64px rgba(0, 0, 0, 0.04);
+    ;
+}
+
+input.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+}
+
+.cke_focus #cke_1_contents {
+    border: 5px solid black !important;
+}
+
+ckeditor.touched {
+    border: 4px solid red;
+}

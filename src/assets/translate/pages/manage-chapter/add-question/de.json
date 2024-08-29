@@ -1,0 +1,28 @@
+{
+    "add-question": {
+        "text": {
+            "questionType": "Question Type",
+            "single": "Réponse unique",
+            "multiple": "Réponse multiple",
+            "true-false": "Vraie/Fausse réponse",
+            "drag-drop": "Glisser & Déposer la réponse",
+            "filltheblank": "Remplissez la réponse vide",
+            "Active": "actif",
+            "InActive": "inactif",
+            "shuffle": "Vous voulez mélanger la réponse?",
+            "Yes": "oui",
+            "No": "Non",
+            "Question": "Question * (Ajoutez une question et ajoutez une seule bonne réponse.)",
+            "Delete": "supprimer",
+            "True": "vrai",
+            "False": "faux",
+            "Add": "ajouter",
+            "option": "Nombre d’options",
+            "Question1": "Question * (Ajouter une question avec blanc et la réponse doit être simple pour vide. Exemple : @__@ est le premier président de l’Inde.)",
+            "Next": "prochain",
+            "justification": "Justification de la réponse",
+            "Save": "sauvegarder",
+            "Cancel": "Annuler"
+        }
+    }
+}

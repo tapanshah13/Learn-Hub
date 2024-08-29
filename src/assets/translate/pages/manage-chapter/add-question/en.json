@@ -1,0 +1,28 @@
+{
+    "add-question": {
+        "text": {
+            "questionType": "Question Type",
+            "single": "Single Answer",
+            "multiple": "Multiple Answer",
+            "true-false": "True/False Answer",
+            "drag-drop": "Drag & Drop Answer",
+            "filltheblank": "Fill in the blank Answer",
+            "Active": "Active",
+            "InActive": "InActive",
+            "shuffle": "Want to shuffle answer?",
+            "Yes": "Yes",
+            "No": "No",
+            "Question": "Question * (Add question and add only one right answer.)",
+            "Delete": "Delete",
+            "True": "True",
+            "False": "False",
+            "Add": "Add",
+            "option": "Number of option",
+            "Question1": "Question * (Add question with blank and answer should be single for blank.Example : @__@ is first president of india.)",
+            "Next": "Next",
+            "justification": "Answer Justification",
+            "Save": "Save",
+            "Cancel": "Cancel"
+        }
+    }
+}

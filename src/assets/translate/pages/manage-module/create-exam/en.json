@@ -1,0 +1,17 @@
+{
+    "create-exam": {
+    "text": {
+        "totalExamAttempt" : "Total exam Attempt",
+        "timePeriod" : "Time Period (In days)",
+        "examTime" : "Exam Time (In Minutes)",
+        "passingPercentage" : "Passing Percentage",
+        "chapterName" : "Chapter Name",
+        "totalChapterQuestion" : "Total Chapter Question",
+        "selectExamQuestion" : "Select Exam Question",
+        "selectQuestion" : "Select Questions",
+        "totalExamQuestion" : "Total Exam Questions",
+        "save" : "Save",
+        "cancel" : "Cancel"
+        }
+    }
+}

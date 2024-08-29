@@ -1,0 +1,20 @@
+{
+    "a_admin": {
+        "text": {
+            "title": "Admin List",
+            "enter_fname": "Please enter First Name",
+            "enter_lname": "Please enter Last Name",
+            "enter_email": "Please enter valid Email",
+            "enter_url": "Pleaese enter valid url",
+            "enter_detal": "Please enter detail",
+            "enter_image": "Please select your profile image",
+            "choise_File": "Choose file",
+            "view": "View",
+            "active": "Active",
+            "inActive": "InActive",
+            "about": "About Me",
+            "save": "Save",
+            "cancel": "cancel"
+        }
+    }
+}

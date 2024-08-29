@@ -1,0 +1,18 @@
+<div class='d-flex'>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" class="mt-1 ml-2">home</mat-icon>
+    <h2> {{formType}}</h2>
+</div>
+<mat-divider></mat-divider>
+<mat-tab-group mat-align-tabs="start" [(selectedIndex)]='gotIndex'>
+
+    <mat-tab label="{{formType}}">
+        <app-add-chapter></app-add-chapter>
+    </mat-tab>
+    <mat-tab label="Questions" routerLink="question" [disabled]="tabvisible">
+        <!--  -->
+        <app-chapter-questions></app-chapter-questions>
+    </mat-tab>
+    <mat-tab label="View Chapter" routerLink="view-chapter" [disabled]="tabvisible">
+        <app-view-chapter></app-view-chapter>
+    </mat-tab>
+</mat-tab-group>

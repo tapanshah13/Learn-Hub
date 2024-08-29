@@ -1,0 +1,9 @@
+{
+    "create-chapter": {
+    "text": {
+        "timeTaken": "Time taken", 
+        "save" : "Save",
+        "cancel" : "Cancel"
+        }
+    }
+}

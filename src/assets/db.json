@@ -1,0 +1,141 @@
+{
+  "chapter": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "chapter_name": "oops Concept",
+      "total_due": "400",
+      "describtion": "<p>hello world</p>\n",
+      "chapterFormate": "2",
+      "chapterType": "2",
+      "id": 2
+    },
+    {
+      "chapter_name": "wwwww",
+      "total_due": "300",
+      "describtion": "<p>helllo world</p>\n",
+      "chapterFormate": "Spring",
+      "chapterType": "2",
+      "id": 3
+    },
+    {
+      "chapter_name": "object detection",
+      "total_due": "300",
+      "describtion": "<p>it&#39;s part of machine learning</p>\n",
+      "chapterType": "1",
+      "typeFormate": "C:\\fakepath\\mr.jpg",
+      "id": 4
+    },
+    {
+      "chapter_name": "angular routing",
+      "total_due": "100",
+      "describtion": "<p>its heart of agular</p>\n",
+      "chapterType": "1",
+      "typeFormate": "https://www.youtube.com/watch?v=Nehk4tBxD4o",
+      "id": 5
+    }
+  ],
+  "questions": [
+    {
+      "questiontype": "singleAnswer",
+      "status": "active",
+      "shuffle": "no",
+      "Description": "<p>Right Answer is &#39;A&#39;</p>\n",
+      "question": "Choose the Right Answer",
+      "SingleAnswerSelected": "A",
+      "SingleAnswerOption0": "A",
+      "SingleAnswerOption1": "B",
+      "SingleAnswerOption2": "C",
+      "id": 1
+    },
+    {
+      "questiontype": "multipleAnswer",
+      "status": "active",
+      "shuffle": "no",
+      "Description": "<p>Right Answer is A&amp;B</p>\n",
+      "question": "Multi Answer Option",
+      "SelectedMultiAnswerOption0": true,
+      "multiAnswerOption0": "A",
+      "SelectedMultiAnswerOption1": true,
+      "multiAnswerOption1": "B",
+      "multiAnswerOption2": "C",
+      "id": 2
+    },
+    {
+      "questiontype": "true/falseAnswer",
+      "status": "active",
+      "shuffle": "no",
+      "Description": "<p>Right Answer is True</p>\n",
+      "question": "True or False Answer",
+      "SelectedAnswer": "true",
+      "id": 3
+    },
+    {
+      "questiontype": "draganddropAnswer",
+      "status": "active",
+      "shuffle": "no",
+      "Description": "<p>Answer of Drag and Drop answer is No 6 and options A to F</p>\n",
+      "question": "Drag and Drop Answer",
+      "Drag&Drop": 6,
+      "DragandDropOption0": "A",
+      "DragandDropOption1": "B",
+      "DragandDropOption2": "C",
+      "DragandDropOption3": "D",
+      "DragandDropOption4": "E",
+      "DragandDropOption5": "F",
+      "id": 4
+    },
+    {
+      "questiontype": "fillintheblankAnswer",
+      "status": "active",
+      "shuffle": "no",
+      "Description": "<p>Fill in the blank answer is A</p>\n",
+      "FillTheBlankQuestion": "@__@Fill in the blank Answer",
+      "FillTheBlankSelectedAnswer": "A",
+      "FillTheBlankOption0": "A",
+      "FillTheBlankOption1": "B",
+      "FillTheBlankOption2": "C",
+      "id": 5
+    },
+    {
+      "questiontype": "singleAnswer",
+      "status": "active",
+      "shuffle": "no",
+      "AnswerJustification": "<p>Answer is a</p>\n",
+      "question": "Single Answer Option",
+      "SingleAnswerSelected": "a",
+      "SingleAnswerOption0": "a",
+      "SingleAnswerOption1": "b",
+      "SingleAnswerOption2": "c",
+      "id": 6
+    },
+    {
+      "questiontype": "singleAnswer",
+      "status": "active",
+      "shuffle": "no",
+      "AnswerJustification": "<p>a</p>\n",
+      "question": "a",
+      "SingleAnswerOption0": "b",
+      "SingleAnswerOption1": "a",
+      "id": 7
+    },
+    {
+      "answers": [],
+      "questiontype": "singleAnswer",
+      "status": "active",
+      "shuffle": "no",
+      "AnswerJustification": "<p>a</p>\n",
+      "question": "a",
+      "SingleAnswerSelected": "b",
+      "SingleAnswerOption0": "a",
+      "SingleAnswerOption1": "b",
+      "id": 8
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

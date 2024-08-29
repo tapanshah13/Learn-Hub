@@ -1,0 +1,78 @@
+<h2 class="ml-4 mt-4">
+    <mat-icon>perm_media</mat-icon> | Module List</h2>
+<div class="progress-spinner" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div style="background-color: white;" class="ml-4 mt-4">
+    <div>
+
+        <input type="search" placeholder="Search" (keyup)="search($event)" class="m-3 p-2 pl-3 search-field">
+        <a [routerLink]="['module/add']"><button mat-raised-button class="m-3 pl-2" color="primary" style="float: right;"><mat-icon>add</mat-icon>{{'module-list.text.addModule' | translate}}</button></a>
+    </div>
+
+
+    <!-- Listing table -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <ng-container matColumnDef="srNo">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.srNo' | translate}}</th>
+            <td mat-cell *matCellDef="let element; index as i"> {{i + 1 + (paginator.pageIndex * paginator.pageSize)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="moduleName">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.moduleName' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.ModuleName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="addedBy">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.addedBy' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.adminId?.firstName}} {{element.adminId?.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="moduleTime">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.totalTimeTaken' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.moduleTime}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="examAttempt">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.totalAttempt' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.moduleExamId?.examAttempt}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="examTimePeriod">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.totalAttemptInDays' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.moduleExamId?.examTimePeriod}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.createdDate' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.createdAt | date: 'MMMM d, y'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="updatedAt">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.updatedDate' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.updatedAt | date: 'MMMM d, y'}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef class="table-heading" mat-sort-header>{{'module-list.text.status' | translate}}</th>
+            <td mat-cell *matCellDef="let element"> {{element.status==1?'Active':'InActive'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="table-heading">{{'module-list.text.action' | translate}}</th>
+
+            <td mat-cell *matCellDef="let element; index as i;">
+                <mat-icon class="mr-1 action-icon" title="View">visibility</mat-icon>
+                <mat-icon class="mr-1 action-icon" title="Clone">flip_to_back</mat-icon>
+                <mat-icon class="mr-1 action-icon" [routerLink]="['module/edit',element._id]" title="Edit">edit</mat-icon>
+                <mat-icon title="Delete" class="action-icon" (click)="deleteRecord(element._id)">delete_outline</mat-icon>
+
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [length]='length' [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+</div>

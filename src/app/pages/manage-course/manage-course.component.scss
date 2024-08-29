@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+
+
+.header {
+    background-color: white;
+}
+
+.search {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.progress-spinner {
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.custom-tooltip {
+    background-color: rgb(66, 66, 189);
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    width: 50px;
+}
+
+.action-icon {
+    cursor: pointer;
+}

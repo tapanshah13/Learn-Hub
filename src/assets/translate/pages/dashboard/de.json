@@ -1,0 +1,10 @@
+{
+    "dashboard": {
+        "text": {
+            "user": "Nombre total d’utilisateurs",
+            "chapter": "Total des chapitres",
+            "module": "Total Module",
+            "course": "Total du cours"
+        }
+    }
+}

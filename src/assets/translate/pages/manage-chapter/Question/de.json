@@ -1,0 +1,16 @@
+{
+    "question": {
+        "text": {
+            "title": "Détails du chapitre",
+            "name": "nom",
+            "chDuration": "Durée du chapitre",
+            "shortDesc": "Brève description",
+            "addQues": "Ajouter des questions",
+            "srno": "Sr.No.",
+            "question": "questionne",
+            "quesType": "Question Type",
+            "createdAt": "Créé à",
+            "action": "Action"
+        }
+    }
+}

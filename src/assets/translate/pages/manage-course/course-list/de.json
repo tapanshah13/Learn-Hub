@@ -1,0 +1,89 @@
+{
+    "course-list": {
+        "text": {
+            "title": "module de cours principal",
+            "search": "rechercher",
+            "add-course": "Créer un cours",
+            "srno": "Sr.No.",
+            "chName": "Nom du cours",
+            "addedBy": "Ajouté par",
+            "estimatedTime": "Temps estimé",
+            "createdat": "Créé à",
+            "updateat": "Mise à jour à",
+            "status": "statut",
+            "action": "Action"
+        }
+    },
+    "add-course": {
+        "text": {
+            "courseDetail": "Détails du cours",
+            "selectModule": "Sélectionner un module",
+            "courseExam": "Examen de cours",
+            "preRequisite": "Cours préalables",
+            "ucourseDetail": "Mettre à jour les détails du cours",
+            "uselectModule": "Mettre à jour le module de cours",
+            "ucourseExam": "Mettre à jour l’examen de cours",
+            "uprequisite": "Cours préalables"
+        }
+    },
+    "corse-detail": {
+        "text": {
+            "Course": "cours",
+            "courseValid": "Veuillez saisir le nom du cours",
+            "Image": "Image",
+            "imagevalid": "* Télécharger l’image avec une largeur minimale - 260px et une hauteur - 210px.",
+            "chooseFile": "Choisir un fichier",
+            "View": "Vue",
+            "imagevalid1": "Veuillez saisir l’image miniature",
+            "popularCourse": "Cours populaire",
+            "isFeatured": "Est en vedette",
+            "enrollCourseDesc": "S’inscrire à la description du cours*",
+            "enrollCourseDescvalid": "Veuillez saisir la description du cours",
+            "shortDes": "Brève description*",
+            "shortDesValid": "Veuillez saisir la description courte du cours",
+            "detailDesc": "Description détaillée*",
+            "detailDescValid": "Veuillez saisir la description détaillée du cours",
+            "Save": "sauvegarder",
+            "Cancel": "Annuler"
+
+        }
+    },
+    "course-module": {
+        "text": {
+            "Course": "cours",
+            "search": "Rechercher et sélectionner un module",
+            "estimatedTime": "Temps total estimé",
+            "min": "Min",
+            "Save": "sauvegarder",
+            "Cancel": "Annuler"
+        }
+    },
+    "course-Exam": {
+        "text": {
+            "Attempt": "essayer",
+            "attemptValid": "La tentative est requise",
+            "timePeriods": "Période (en jours)",
+            "timePeriodsValid": "Une période de temps est requise",
+            "examTime": "Temps d’examen (en minutes)",
+            "examTimeValid": "Le temps d’examen est requis",
+            "passingPercentage": "Pourcentage de passage",
+            "passingpercentageValid": "Le pourcentage de réussite est requis",
+            "moduleName": "Nom du module",
+            "moduleQuestion": "Total des questions du module",
+            "examQuestion": "Sélectionner une question d’examen",
+            "selectQuestion": "Sélectionner des questions",
+            "totalExamQues": "Nombre total de questions d’examen",
+            "giveReview": "Voulez-vous que l’utilisateur révise l’examen?",
+            "reviewExam": "Examen de révision",
+            "Save": "sauvegarder",
+            "Cancel": "Annuler"
+        }
+    },
+    "preRequisite": {
+        "text": {
+            "selectCourse": "Sélectionner un cours",
+            "Save": "sauvegarder",
+            "Cancel": "Annuler"
+        }
+    }
+}

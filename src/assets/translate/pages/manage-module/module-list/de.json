@@ -1,0 +1,17 @@
+{
+    "module-list": {
+    "text": {
+        "moduleName" : "Nom du module",
+        "srNo" : "Sr.No.",
+        "addedBy" : "Ajouté par",
+        "totalTimeTaken" : "Temps total pris",
+        "totalAttempt" : "Tentative totale",
+        "totalAttemptInDays" : "Tentative totale (en jours)",
+        "createdDate" : "Date de création",
+        "updatedDate" : "Date de mise à jour",
+        "status" : "Statut",
+        "action" : "Actions",
+        "addModule" : "Ajouter un module"
+        }
+    }
+}

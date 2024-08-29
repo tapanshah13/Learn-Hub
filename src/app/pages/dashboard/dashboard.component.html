@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row my-3">
+        <div class="col-lg-3 col-md-6 col-sm-6 custom p-2">
+            <mat-card class="box1 h-100" [routerLink]="['/manage-user']">
+                <mat-card-header>
+                    <div class="icon-class">
+                        <mat-icon style="font-size: 45px;padding-top: 30px;padding-right: 30px;">people</mat-icon>
+                    </div>
+                    <div class="big-font" *ngIf='dashboardData?.user'>
+                        <mat-card-title style="font-size: 40px;padding-top: 30px;">
+                            {{ dashboardData.user }}
+                        </mat-card-title>
+                        <mat-card-content style="font-size: 20px;padding-bottom: 15px;">
+                            Total Users
+                        </mat-card-content>
+                    </div>
+                </mat-card-header>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 custom p-2">
+            <mat-card class="box2 h-100" [routerLink]="['/manage-chapter']">
+                <mat-card-header>
+                    <div class="icon-class">
+                        <mat-icon style="font-size: 45px;padding-top: 30px;padding-right: 30px;">view_list</mat-icon>
+                    </div>
+                    <div class="big-font" *ngIf='dashboardData?.chapter'>
+                        <mat-card-title style="font-size: 40px;padding-top: 30px;">
+                            {{ dashboardData.chapter}}
+                        </mat-card-title>
+                        <mat-card-content style="font-size: 20px;padding-bottom: 15px;">
+                            {{'dashboard.text.chapter' | translate}}
+                        </mat-card-content>
+                    </div>
+                </mat-card-header>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 custom p-2">
+            <mat-card class="box3 h-100" [routerLink]="['/manage-module']">
+                <mat-card-header>
+                    <div class="icon-class">
+                        <mat-icon style="font-size: 45px;padding-top: 30px;padding-right: 30px;">assignment</mat-icon>
+                    </div>
+                    <div class="big-font" *ngIf='dashboardData?.module'>
+                        <mat-card-title style="font-size: 40px;padding-top: 30px;">
+                            {{ dashboardData.module}}
+                        </mat-card-title>
+                        <mat-card-content style="font-size: 20px;padding-bottom: 15px;">
+                            {{'dashboard.text.module' | translate}}
+                        </mat-card-content>
+                    </div>
+                </mat-card-header>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 custom p-2">
+            <mat-card class="box4 h-100" [routerLink]="['/manage-course']">
+                <mat-card-header>
+                    <div class="icon-class">
+                        <mat-icon style="font-size: 45px;padding-top: 30px;padding-right: 30px;">date_range</mat-icon>
+                    </div>
+                    <div class="big-font" *ngIf='dashboardData?.course'>
+                        <mat-card-title style="font-size: 40px;padding-top: 30px;">
+                            {{ dashboardData.course}}
+                        </mat-card-title>
+                        <mat-card-content style="font-size: 20px;padding-bottom: 15px;">
+                            {{'dashboard.text.course' | translate}}
+                        </mat-card-content>
+                    </div>
+                </mat-card-header>
+            </mat-card>
+        </div>
+    </div>
+
+</div>

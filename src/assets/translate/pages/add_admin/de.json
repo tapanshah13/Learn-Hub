@@ -1,0 +1,20 @@
+{
+    "a_admin": {
+        "text": {
+            "title": "Liste des administrateurs",
+            "enter_fname": "Veuillez saisir le prénom",
+            "enter_lname": "Veuillez saisir le nom de famille",
+            "enter_email": "Veuillez saisir un e-mail valide",
+            "enter_url": "Entrez une URL valide",
+            "enter_detal": "Veuillez saisir les détails",
+            "enter_image": "Veuillez sélectionner votre image de profil",
+            "choise_File": "Choisir un fichier",
+            "view": "Vue",
+            "active": "actif",
+            "inActive": "inactif",
+            "about": "À propos de moi",
+            "save": "sauvegarder",
+            "cancel": "Annuler"
+        }
+    }
+}

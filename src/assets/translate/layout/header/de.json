@@ -1,0 +1,14 @@
+{
+    "header": {
+        "menu": {
+            "item1": "tableau de bord",
+            "item2": "Gérer l’administrateur",
+            "item3": "Gérer le chapitre",
+            "item4": "Gérer le module",
+            "item5": "Gérer le cours",
+            "item6": "Gérer l’utilisateur",
+            "item7": "Gérer les contacts"
+
+        }
+    }
+}

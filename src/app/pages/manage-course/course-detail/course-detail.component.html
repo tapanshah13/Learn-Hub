@@ -1,0 +1,54 @@
+<div class="course-detail">
+    <div *ngIf="header === 'Add Course' ? false : true">
+        <div class="progress-spinner" *ngIf="isLoadingResults">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+    </div>
+    <div class="container">
+        <form [formGroup]="courseDetail" (ngSubmit)="onSave()">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{'corse-detail.text.Course' | translate}}</h3>
+                    <input matInput type="text" class="pl-3 py-2 mt-2 text-field" formControlName='courseName' placeholder="Course Name">
+                    <span *ngIf="!courseDetail.get('courseName')?.valid && courseDetail.get('courseName')?.touched" class="alert-message">{{'corse-detail.text.courseValid' | translate}}</span>
+                </div>
+                <div class="col-md-6">
+                    <span>{{'corse-detail.text.Image' | translate}}*
+                    <p>{{'corse-detail.text.imagevalid' | translate}}</p></span>
+                    <input type="file" accept="image/*" id='actual-btn' formControlName='imageUrl' (change)="onSelectImage($event)" hidden>
+                    <label for="actual-btn" class="image-btn">{{'corse-detail.text.chooseFile' | translate}}</label>
+                    <span id="file-chosen" class="mr-3">{{fileName}}</span>
+                    <button mat-raised-button type="button" *ngIf="length" color="primary" (click)="viewImage()">{{'corse-detail.text.View' | translate}}</button>
+                    <span *ngIf="!courseDetail.get('imageUrl')?.valid && courseDetail.get('imageUrl')?.touched" class="alert-message">{{'corse-detail.text.imagevalid1' | translate}}</span>
+                </div>
+            </div>
+            <div>
+                <mat-checkbox class="mt-3 mr-3" color="primary" [checked]='false' name='Popular Course' formControlName='popularCourse'>{{'corse-detail.text.popularCourse' | translate}}</mat-checkbox>
+                <mat-checkbox color="primary" name='Is Featured' formControlName='isFeature'>{{'corse-detail.text.isFeatured' | translate}}</mat-checkbox>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="mt-3 course-description">{{'corse-detail.text.enrollCourseDesc' | translate}}</label>
+                    <ckeditor name="description" formControlName='enRollCourseDescription'></ckeditor>
+                    <span *ngIf="!courseDetail.get('enRollCourseDescription')?.valid && courseDetail.get('enRollCourseDescription')?.touched" class="alert-message">{{'corse-detail.text.enrollCourseDescvalid' | translate}}</span>
+                    <br>
+                    <label class="mt-3 course-description">{{'corse-detail.text.shortDes' | translate}}</label>
+                    <ckeditor name="description" formControlName='shortDescription'></ckeditor>
+                    <span *ngIf="!courseDetail.get('shortDescription')?.valid && courseDetail.get('shortDescription')?.touched" class="alert-message">{{'corse-detail.text.shortDesValid' | translate}}</span>
+
+                    <br>
+                    <label class="mt-3 course-description">{{'corse-detail.text.detailDesc' | translate}}</label>
+                    <ckeditor name="description" formControlName='detailDescription'></ckeditor>
+                    <span *ngIf="!courseDetail.get('detailDescription')?.valid && courseDetail.get('detailDescription')?.touched" class="alert-message">{{'corse-detail.text.detailDescValid' | translate}}</span>
+
+                </div>
+            </div>
+            <br>
+            <!-- <button type="submit" mat-raised-button color="primary" (click)='enableNextTab()' class="mr-3">Save</button> -->
+
+            <button type="submit" mat-raised-button color="primary" [disabled]='!courseDetail.valid' class="mr-3">{{'corse-detail.text.Save' | translate}}</button>
+            <button type="reset" mat-raised-button color="warn" (click)='onCancel()'>{{'corse-detail.text.Cancel' | translate}}</button>
+        </form>
+    </div>
+</div>

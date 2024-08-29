@@ -1,0 +1,92 @@
+<div class="card-box mt-3">
+    <form #chapterForm="ngForm" (ngSubmit)="chapterSave(chapterForm.value)">
+        <div class="d-flex mt-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{'add_chapter.text.chName' | translate}}</label>
+                    <input type="text" class="form-control" placeholder="Chapter Name" #name="ngModel" name="name" [ngModel]="chapterDetail.name" required>
+                    <span *ngIf="name.invalid && name.touched" class="error">{{'add_chapter.text.nameValid' | translate}}</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>{{'add_chapter.text.tduration' | translate}}</label>
+                    <input type="text" class="form-control" placeholder="Total Duration (In Minutes)" #duration="ngModel" name="duration" [ngModel]="chapterDetail.duration" required>
+                    <span *ngIf="duration.invalid && duration.touched" class="error">{{'add_chapter.text.durationvalid' | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>{{'add_chapter.text.sdescription' | translate}}</label>
+                <ckeditor [(ngModel)]="ckeditorContent" name="shortDescription" class="ckeditor" #description="ngModel" [ngModel]="chapterDetail.shortDescription" required>
+                </ckeditor>
+                <span *ngIf="description.touched && description.invalid" class="error">{{'add_chapter.text.sdescpvalid' | translate}}</span>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="col-md-6 mt-2">
+                <mat-radio-group [(ngModel)]="SwitchModel" name="documentType" [ngModel]="chapterDetail.chapterDocType.chapterType">
+                    <mat-radio-button value="image" color="primary" (click)="DisableWhenChnagedRadio()">{{'add_chapter.text.image' | translate}}</mat-radio-button>
+                    <mat-radio-button value="pdf" color="primary" (click)="DisableWhenChnagedRadio()" class="ml-2">{{'add_chapter.text.pdf' | translate}}</mat-radio-button>
+                    <mat-radio-button value="videolink" color="primary" (change)="DisableWhenChnagedRadio()" class="ml-2">{{'add_chapter.text.videowithurl' | translate}}</mat-radio-button>
+                    <mat-radio-button value="audio" color="primary" (click)="DisableWhenChnagedRadio()" class="ml-2">{{'add_chapter.text.audio' | translate}}</mat-radio-button>
+                    <mat-radio-button value="video" color="primary" (click)="DisableWhenChnagedRadio()" class="ml-2">{{'add_chapter.text.video' | translate}}</mat-radio-button>
+                    <mat-radio-button value="text" color="primary" (click)="DisableWhenChnagedRadio()" class="ml-2">{{'add_chapter.text.text' | translate}}</mat-radio-button>
+                </mat-radio-group>
+                <div [ngSwitch]='SwitchModel'>
+                    <div *ngSwitchCase="'image'" class="d-flex mt-4">
+                        <input type="file" class="form-control mr-1" accept="image/*" (change)="onImgChange($event)" name="documentUrl" #takeInput [ngModel]="chapterDetail.documentUrl">
+                        <a mat-raised-button color="primary" (click)="viewImgFunc($event)" *ngIf="length">{{'add_chapter.text.view' | translate}}</a>
+                    </div>
+                    <div *ngSwitchCase="'pdf'" class="d-flex mt-4">
+                        <input type="file" class="form-control mr-1" (change)="onImgChange($event)" accept=".pdf" name="documentUrl" ngModel>
+                        <a mat-raised-button color="primary" (click)="viewPdfFunc($event)" *ngIf="length">{{'add_chapter.text.view' | translate}}</a>
+                    </div>
+                    <div *ngSwitchCase="'videolink'" class="d-flex mt-4">
+                        <input type="url" class="form-control mr-1" placeholder="Video With Url" name="videoLinkUrl" pattern="https?://.+" #urlPattern="ngModel" [(ngModel)]="videoLinkUrl" #youtubeLink>
+                        <a mat-raised-button color="primary" (click)="viewVideoUrlFunc(youtubeLink.value)">{{'add_chapter.text.view' | translate}}</a>
+                        <span *ngIf="urlPattern.invalid && urlPattern.touched" class="error">Url is Wrong ^_^ </span>
+                    </div>
+                    <div *ngSwitchCase="'audio'" class="d-flex mt-4">
+                        <input type="file" class="form-control mr-1" accept="audio/*" (change)="onImgChange($event)" name="documentUrl" ngModel>
+                        <a mat-raised-button color="primary" (click)="viewAudioFunc($event)" *ngIf="length">{{'add_chapter.text.view' | translate}}</a>
+                    </div>
+                    <div *ngSwitchCase="'video'" class="d-flex mt-4">
+                        <input type="file" class="form-control mr-1" accept="video/*" (change)="onImgChange($event)" name="documentUrl" ngModel>
+                        <a mat-raised-button color="primary" (click)="viewVideoFunc($event)" *ngIf="length">{{'add_chapter.text.view' | translate}}</a>
+                    </div>
+                    <div *ngSwitchCase="'text'" class="d-flex mt-4">
+                        <input type="file" class="form-control" accept=".txt" (change)="onImgChange($event)" name="documentUrl" ngModel>&nbsp;&nbsp;&nbsp;
+                        <a mat-raised-button color="primary" (click)="viewTextFunc($event)" *ngIf="length">{{'add_chapter.text.view' | translate}}</a>
+                    </div>
+                    <img [src]="url" height="200" width="420" *ngIf="visibleImg">
+                    <pdf-viewer [src]="pdfUrl" [render-text]="true" style="display: block; width: 500px; height: 200px;" *ngIf="visiblePdf">
+                    </pdf-viewer>
+                    <iframe width="420" height="315" [src]="videoWithUrl" frameborder="0" allowfullscreen *ngIf="visibleVideoUrl"></iframe>
+                    <audio controls *ngIf="visibleAudio">
+                                <source [src]="audioUrl" type="audio/mpeg">
+                            </audio>
+                    <video width="420" height="240" controls *ngIf="visibleVideo">
+                                <source [src]="videoUrl" type="video/mp4">
+                              </video>
+                    <iframe [src]="textUrl" height="200" width="420" title="W3Schools Free Online Web Tutorials" *ngIf="visibleText">
+                              </iframe>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <mat-form-field appearance="outline" style=" width: 100%">
+                    <mat-label>Status</mat-label>
+                    <mat-select disableRipple name="isActive" [ngModel]="chapterDetail.isActive">
+                        <mat-option value="0">{{'add_chapter.text.inactive' | translate}}</mat-option>
+                        <mat-option value="1">{{'add_chapter.text.active' | translate}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        &nbsp;<button mat-raised-button color="primary" class="mt-3" [disabled]="!chapterForm.valid">{{'add_chapter.text.save' | translate}}</button>&nbsp;&nbsp;
+        <button mat-raised-button routerLink="manage-chapter" color="warn">{{'add_chapter.text.cancel' | translate}}</button>
+
+    </form>
+
+</div>

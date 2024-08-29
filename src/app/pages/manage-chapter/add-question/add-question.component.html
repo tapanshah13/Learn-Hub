@@ -1,0 +1,139 @@
+<div class="page-content">
+    <div class='row head'>
+        <mat-icon>assignment_turned_in</mat-icon>
+        <h2> {{header}}</h2>
+    </div>
+    <div class="card-box">
+        <form #question="ngForm" (ngSubmit)="onSubmit(question.value)">
+            <div class="row firstrow">
+                <div class="col-6">
+                    <mat-label>{{'add-question.text.questionType' | translate}}</mat-label>
+                    <mat-form-field appearance="outline">
+                        <mat-select required name="questionType" [(ngModel)]='viewOptions' required [ngModel]="selectedQuestion">
+                            <mat-option value="single" (click)="disablefunc();viewOptions = 'single'">{{'add-question.text.single' | translate}}</mat-option>
+                            <mat-option value="multiple" (click)="disablefunc();viewOptions = 'multiple'">{{'add-question.text.multiple' | translate}}</mat-option>
+                            <mat-option value="truefalse" (click)="disablefunc();viewOptions='truefalse'">{{'add-question.text.true-false' | translate}}</mat-option>
+                            <mat-option value="dragdrop" (click)="disablefunc();viewOptions='dragdrop'">{{'add-question.text.drag-drop' | translate}}</mat-option>
+                            <mat-option value="fillblank" (click)="filltheblank()">{{'add-question.text.filltheblank' | translate}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-label>Status</mat-label>
+                    <mat-form-field appearance="outline">
+                        <mat-select required name="status" [(ngModel)]='selectedStatus' required>
+                            <mat-option value="1">{{'add-question.text.Active' | translate}}</mat-option>
+                            <mat-option value="0">{{'add-question.text.InActive' | translate}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row firstrow">
+                <div class="col-6">
+                    <mat-label>{{'add-question.text.shuffle' | translate}}</mat-label>
+                    <mat-form-field appearance="outline">
+                        <mat-select required name="shuffle" [ngModel]="questionDetail.shuffle" [(ngModel)]='selectedShuffle' required>
+                            <mat-option value="y">{{'add-question.text.Yes' | translate}}</mat-option>
+                            <mat-option value="n">{{'add-question.text.No' | translate}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row" *ngIf="fillTheBlankTextAreaHideShow">
+                <div class="col-12">
+                    <mat-label>{{'add-question.text.Question' | translate}}</mat-label>
+                    <mat-form-field appearance="outline">
+                        <textarea matInput name="question" [ngModel]="questionDetail.question" required placeholder="Textarea"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div [ngSwitch]="viewOptions">
+                        <div *ngSwitchCase="'single'">
+                            <mat-radio-group [(ngModel)]="selectedsingleAnswerOption" #question="matRadioGroup" [ngModelOptions]="{standalone: true}" required>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <mat-radio-button value="{{singleAnswerOption[i]}}" *ngFor="let add of addingSingleOption; let i=index">
+                                            <mat-form-field appearance="outline" class="example-full-width">
+                                                <input matInput placeholder="Option Label{{i}}" class="singletext" name="SingleAnswerOption{{i}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="singleAnswerOption[i]" required>
+                                                <a mat-raised-button color="warn" class="deletebtn" (click)="remove(i)">{{'add-question.text.Delete' | translate}}</a>
+                                            </mat-form-field>
+                                        </mat-radio-button>
+                                    </div>
+                                </div>
+                            </mat-radio-group>
+                            <a mat-raised-button color="primary" class="btn" (click)="addSingleAnswerOption()">{{'add-question.text.Add' | translate}}</a>
+                        </div>
+                        <div *ngSwitchCase="'multiple'">
+                            <div *ngFor="let checkbox of addingMultiAnswerOption; let i=index">
+                                <mat-checkbox [ngModelOptions]="{standalone: true}" value="{{multiAnswerOption[i]}}" [(ngModel)]="selectedMultiAnswer[i]">
+                                    <mat-form-field appearance="outline" class="input">
+                                        <input matInput placeholder="Option Label{{i}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="multiAnswerOption[i]" style="width: 100%;">
+                                        <a mat-raised-button color="warn" class="deletebtn" (click)="remove(i)">{{'add-question.text.Delete' | translate}}</a>
+                                    </mat-form-field>
+                                </mat-checkbox>
+                            </div>
+                            <a mat-raised-button color="primary" class="btn" (click)="addMultiAnswerOption()">{{'add-question.text.Add' | translate}}</a>
+                        </div>
+                        <div *ngSwitchCase="'truefalse'">
+                            <mat-radio-group color="primary" [ngModelOptions]="{standalone: true}" [(ngModel)]="trueAndFalse">
+                                <mat-radio-button value="True" class="truefalsebtn"><a mat-raised-button color="primary" class="truefalsebtn">{{'add-question.text.True' | translate}}</a>
+                                </mat-radio-button>
+                                <mat-radio-button value="False" class="truefalsebtn"><a mat-raised-button color="primary" class="truefalsebtn">{{'add-question.text.False' | translate}}</a>
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div *ngSwitchCase="'dragdrop'">
+                            <mat-label>{{'add-question.text.option' | translate}}</mat-label>
+                            <mat-form-field appearance="outline" class="input">
+                                <input matInput placeholder="Option Label" type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="dragAndDropNumberofOption" (keyup.enter)="dragAndDrop()">
+                            </mat-form-field>
+                            <div class="row">
+                                <div *ngFor="let data of dragAndDropLength let i = index" class="col-6">
+                                    <mat-label>Option{{i}}</mat-label>
+                                    <mat-form-field appearance="outline" class="input">
+                                        <input matInput placeholder="Option" [ngModelOptions]="{standalone: true}" [(ngModel)]="dragAndDropOption[i]">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="'fillblank'">
+                            <div class="row">
+                                <div class="col-12">
+                                    <mat-label>{{'add-question.text.Question1' | translate}}</mat-label>
+                                    <mat-form-field appearance="outline">
+                                        <textarea matInput name="question" required placeholder="Textarea" [(ngModel)]="fillTheBlankNoOfBlankFinder"></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <mat-radio-group #question="matRadioGroup" [(ngModel)]="selectedFillTheBlankOption" [ngModelOptions]="{standalone: true}">
+                                <mat-radio-button value="{{fillTheBlankOption[i]}}" *ngFor="let add of addingFillTheBlankOption; let i=index">
+                                    <mat-form-field appearance="outline" class="input">
+                                        <input matInput placeholder="Option Label{{i}}" style="width: 100%;" [ngModelOptions]="{standalone: true}" [(ngModel)]="fillTheBlankOption[i]">
+                                        <a mat-raised-button color="warn" class="deletebtn" (click)="remove(i)">{{'add-question.text.Delete' | translate}}</a>
+                                    </mat-form-field>
+                                </mat-radio-button>
+                                <a mat-raised-button color="primary" class="btn" (click)="addFillTheBlank()" *ngIf="nextButtonFillTheBlank">{{'add-question.text.Next' | translate}}</a>
+                                <a mat-raised-button color="primary" class="btn" (click)="addFillTheBlankMoreOption()" *ngIf="addButtonFillTheBlank">{{'add-question.text.Add' | translate}}</a>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>{{'add-question.text.justification' | translate}}</label>
+                    <ckeditor [(ngModel)]="ckeditorContent" name="answerJustification" [ngModel]="questionDetail.answerJustification" required>
+                    </ckeditor>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button mat-raised-button color="primary" class="btn" [disabled]="!question.valid" routerLink="/question">{{'add-question.text.Save' | translate}}</button> &nbsp;
+                    <button mat-raised-button color="warn" class="btn">{{'add-question.text.Cancel' | translate}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

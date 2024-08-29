@@ -1,0 +1,45 @@
+* {
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-size: 16px;
+}
+div.container{
+  min-width: -webkit-fill-available;
+}
+.main-class {
+  background-color: white;
+  padding: 16px 0px 0px;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+.mat-form-field {
+  display: block;
+}
+
+table {
+  width: 100%;
+}
+
+.totalQuestions {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  padding: 20px 0px;
+}
+
+button {
+  margin: 5px;
+}
+
+.saveButton {
+  background-color: black;
+  color: white;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: white;
+}
+
+th {
+  color: rgb(2, 0, 41);
+}

@@ -1,0 +1,113 @@
+<!-- <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form">
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions>
+</mat-card> -->
+<!-- 
+<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<div class="l-form">
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+
+  <div class="form">
+    <img
+      src="https://raw.githubusercontent.com/bedimcode/responsive-login-form/eafbae66248bc27a0b1e26e2a5ddd2ad0d01956b/assets/img/authentication.svg"
+      alt="" class="form__img">
+
+    <form action="" class="form__content">
+      <h1 class="form__title">Welcome</h1>
+
+      <div class="form__div form__div-one">
+        <div class="form__icon">
+          <i class='bx bx-user-circle'></i>
+        </div>
+
+        <div class="form__div-input">
+          <label for="" class="form__label">Username</label>
+          <input type="text" class="form__input">
+        </div>
+      </div>
+
+      <div class="form__div">
+        <div class="form__icon">
+          <i class='bx bx-lock'></i>
+        </div>
+
+        <div class="form__div-input">
+          <label for="" class="form__label">Password</label>
+          <input type="password" class="form__input">
+        </div>
+      </div>
+      
+      <input type="submit" class="form__button" value="Login">
+
+      <div class="form__social">
+        <span class="form__social-text">Our login with</span>
+
+        <a href="#" class="form__social-icon"><i class='bx bxl-facebook'></i></a>
+        <a href="#" class="form__social-icon"><i class='bx bxl-google'></i></a>
+        <a href="#" class="form__social-icon"><i class='bx bxl-instagram'></i></a>
+      </div>
+    </form>
+  </div>
+
+</div> -->
+<div class="auth-main">
+    <div class="container">
+        <div class="logo-box"></div>
+        <div class="form-box">
+            <form novalidate class="login-form">
+                <div class="mb-3">
+                    <div class="input-box">
+                        <input type="email" [(ngModel)]="email" name="email" required autocomplete="false" required="" email="" tabindex="1" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="input-box position-relative">
+                        <div class="eye-icon">
+                            <span class="ed-icon eye-show " matSuffix (click)="hide = !hide"></span>
+                        </div>
+                        <input [(ngModel)]="password" type="password" name="password" required autocomplete="false" required="" tabindex="2" class="form-control" placeholder="Password" [type]="hide ? 'password' : 'text'">
+                    </div>
+                </div>
+                <div class="agree-text d-flex justify-content-between mt-4 pt-1">
+                    <div>
+                        <input type="checkbox" id="agree" name="agree" tabindex="3">
+                        <label for="agree" class="ml-2">Remember Me</label>
+                    </div>
+                    <a class="link-btn" href="/forgot-password">Forgot Password</a>
+                </div>
+                <div class="my-4 py-1">
+                    <button type="submit" mat-button="" tabindex="4" class="mat-focus-indicator sign-btn w-100 text-uppercase mat-button mat-button-base" value="Login" (click)="login()">
+                      <span class="mat-button-wrapper">login</span>
+                      <span matripple="" class="mat-ripple mat-button-ripple"></span>
+                      <span class="mat-button-focus-overlay"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

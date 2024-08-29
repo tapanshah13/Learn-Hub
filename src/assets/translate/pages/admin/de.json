@@ -1,0 +1,16 @@
+{
+    "admin": {
+        "text": {
+            "title": "Liste des administrateurs",
+            "srno": "Sr.No.",
+            "fname": "prénom",
+            "lname": "Nom",
+            "email": "Messagerie électronique",
+            "admin_type": "Type d’administrateur",
+            "status": "statut",
+            "action": "Actions",
+            "search": "rechercher",
+            "abtn": "Ajouter un administrateur"
+        }
+    }
+}

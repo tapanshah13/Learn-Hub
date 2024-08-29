@@ -1,0 +1,69 @@
+<div *ngIf="header1" class="normalScreen">
+    <!-- <div *ngIf="header"> -->
+    <div fxFlex="4" class="icon" *ngIf="isLoggedIn">
+        <div class="logoicon"><button mat-icon-button (click)="sideBarToggler($event)" class="menubtnicon">
+    <i class="material-icons">menu_open</i></button></div>
+        <span class="menuicon"><button mat-icon-button class="menuicon">
+      <mat-icon>assessment</mat-icon>
+    </button></span>
+        <span class="menuicon"><button mat-icon-button class="menuicon"><i
+        class="material-icons">how_to_reg</i></button></span>
+        <span class="menuicon"><button mat-icon-button class="menuicon"><i
+        class="material-icons">auto_stories</i></button></span>
+        <span class="menuicon"><button mat-icon-button class="menuicon"><i
+        class="material-icons">add_to_photos</i></button></span>
+        <span class="menuicon"><button mat-icon-button class="menuicon"><i
+        class="material-icons">fiber_new</i></button></span>
+        <span class="menuicon"><button mat-icon-button class="menuicon"><i
+        class="material-icons">supervised_user_circle</i></button></span>
+        <span class="menuicon"><button mat-icon-button class="menuicon"><i
+        class="material-icons">contacts</i></button></span>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br>
+    </div>
+<!-- </div> -->
+    <mat-drawer-container>
+        <mat-drawer mode="side" [opened]='sideBarOpen' *ngIf="isLoggedIn" [mode]="mobileQuery.matches ? 'over' : 'side'"
+         fixedTopGap="56">
+            <mat-nav-list>
+                <div class="logo"><img src="https://vidhya-backend.viitorcloud.in/assets/images/logo-new.svg"></div>
+                <div class="spacer"></div>
+                <!-- <a mat-list-item routerLink="/manage-user">Manage Contact</a> -->
+                <a mat-list-item routerLink="/dashboard">{{'header.menu.item1' | translate}}</a>
+                <a mat-list-item routerLink="/manage-admin">{{'header.menu.item2' | translate}}</a>
+                <a mat-list-item routerLink="/manage-chapter">{{'header.menu.item3' | translate}}</a>
+                <a mat-list-item routerLink="/manage-module">{{'header.menu.item4' | translate}}</a>
+                <a mat-list-item routerLink="/manage-course">{{'header.menu.item5' | translate}}</a>
+                <a mat-list-item routerLink="/manage-user">{{'header.menu.item6' | translate}}</a>
+                <a mat-list-item routerLink="/manage-user">{{'header.menu.item7' | translate}}</a>
+            </mat-nav-list>
+        </mat-drawer>
+        <mat-drawer-content>
+            <app-header (sideBarToggler)="sideBarToggler($event)" *ngIf="isLoggedIn"></app-header>
+            <router-outlet></router-outlet>
+            <app-footer *ngIf="header1">Footer</app-footer>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>
+
+<div *ngIf="header" class="mobile">
+<app-header (sideBarToggler)="sideBarToggler($event)" *ngIf="isLoggedIn"></app-header>
+    <mat-drawer-container>
+        <mat-drawer mode="side" [opened]='sideBarOpen' *ngIf="isLoggedIn" [mode]="mobileQuery.matches ? 'over' : 'side'"
+        fixedTopGap="56">
+        <app-sidebar>SideBar</app-sidebar>
+        </mat-drawer>
+        <mat-drawer-content>
+            <router-outlet></router-outlet>
+            <app-footer>Footer</app-footer>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>
+<!-- <div fxLayout="row" fxFlex="100">
+<app-sidebar *ngIf="isLoggedIn" fxLayout="column" fxFlex="200px"></app-sidebar>
+<div class="content" fxLayout="column" fxFlex>
+  <app-header *ngIf="isLoggedIn" fxLayout="column"></app-header>
+  <router-outlet></router-outlet>
+</div>
+<app-footer *ngIf="isLoggedIn" fxLayout="column"></app-footer>
+</div> -->

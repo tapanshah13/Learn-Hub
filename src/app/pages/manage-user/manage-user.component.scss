@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+}
+
+.search-field {
+    border: 1px solid lightgrey;
+}
+
+.progress-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.custom-tooltip {
+    background-color: rgb(66, 66, 189);
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    width: 50px;
+}
+
+.action-icon {
+    cursor: pointer;
+}
